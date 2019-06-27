@@ -8,23 +8,22 @@ import { IonItem, IonItemSliding } from '@ionic/angular';
 })
 export class Tab2Page {
 
-  public color = 'blue';
-
+  public itemColor = 'royalblue';
+  public favoriteColor = 'royalblue';
+  public starColor = 'royalblue';
   constructor() { }
 
-  favorite( itemSlide: any ) {
-    console.log("favorite called");
-    console.log(itemSlide);
-    this.color = 'red';
-    itemSlide.setElementClass("active-sliding", true);
+  favorite() {
+    // console.log("favorite called");
+    // console.log(itemSlide);
+    this.favoriteColor = 'green';
+    this.itemColor = 'green';
+    this.starColor = 'royalblue';
   };
 
-  // public openNotification(itemSlide: any, item: any) {
-  //   // reproduce the slide on the click
-
-  //   itemSlide.setElementClass("active-sliding", true);
-  //   itemSlide.setElementClass("active-slide", true);
-  //   itemSlide.setElementClass("active-options-right", true);
-  //   item.setElementStyle("transform", "translate3d(-241px, 0px, 0px)");
-  // };
+  star() {
+    this.starColor = 'red';
+    this.itemColor = 'red';
+    this.favoriteColor = 'royalblue';
+  };
 }
