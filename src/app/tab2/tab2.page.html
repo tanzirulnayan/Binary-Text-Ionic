@@ -8,24 +8,24 @@
 
 <ion-content>
   <ion-list>
-    <ion-item-sliding id="item100">
+    <ion-item-sliding *ngFor="let notification of notificationList" id="{{notification.Id}}">
       <ion-item>
         <ion-thumbnail style="margin-right: 10px;">
           <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
         </ion-thumbnail>
         <ion-label>
-          <h2 [ngStyle]="{'color': itemColor}">HubStruck Notifications</h2>
-          <p>10:45 AM</p>
+          <h2 [ngStyle]="{'color': itemColor}">{{ notification.Title }}-{{ notification.Status }}</h2>
+          <p>{{ notification.Time }}</p>
         </ion-label>
       </ion-item>
 
       <ion-item-options side="start">
-        <ion-item-option (click)="favorite()" [ngStyle]="{'background-color': favoriteColor}">
+        <ion-item-option (click)="favorite(notification)" [ngStyle]="{'background-color': favoriteColor}">
           <ion-icon slot="icon-only" name="heart"></ion-icon>
         </ion-item-option>
       </ion-item-options>
       <ion-item-options side="end">
-        <ion-item-option (click)="star()" [ngStyle]="{'background-color': starColor}">
+        <ion-item-option (click)="star(notification)" [ngStyle]="{'background-color': starColor}">
           <ion-icon slot="icon-only" name="star"></ion-icon>
         </ion-item-option>
       </ion-item-options>
